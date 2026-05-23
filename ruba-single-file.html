@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruba ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#050510;
+color:white;
+overflow-x:hidden;
+min-height:100vh;
+}
+
+.hidden{
+display:none;
+}
+
+#loading-screen{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:20px;
+}
+
+.loader-bar{
+width:260px;
+height:12px;
+background:#222;
+border-radius:20px;
+overflow:hidden;
+}
+
+.loader-fill{
+height:100%;
+width:0%;
+background:#ff4fa3;
+animation:load 3s forwards;
+}
+
+@keyframes load{
+to{width:100%;}
+}
+
+.card{
+background:#111827;
+padding:30px;
+border-radius:20px;
+text-align:center;
+width:320px;
+margin:auto;
+margin-top:20vh;
+box-shadow:0 0 25px rgba(255,255,255,0.08);
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:15px;
+border:none;
+border-radius:10px;
+outline:none;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+border:none;
+border-radius:12px;
+background:#ff4fa3;
+color:white;
+cursor:pointer;
+font-size:16px;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.hero{
+text-align:center;
+padding:100px 20px 40px;
+}
+
+.hero h1{
+font-size:64px;
+margin-bottom:10px;
+}
+
+.timeline{
+width:90%;
+max-width:650px;
+margin:auto;
+}
+
+.timeline-item{
+background:#111827;
+padding:20px;
+margin:20px 0;
+border-radius:15px;
+transition:0.3s;
+font-size:18px;
+}
+
+.timeline-item:hover{
+transform:scale(1.03);
+}
+
+.love-btn{
+display:block;
+margin:40px auto;
+}
+
+.envelope{
+width:90%;
+max-width:550px;
+margin:40px auto;
+background:white;
+color:black;
+padding:30px;
+border-radius:20px;
+animation:fade 1s ease;
+line-height:2;
+text-align:center;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.stars{
+position:fixed;
+inset:0;
+background:
+radial-gradient(white 1px, transparent 1px),
+radial-gradient(white 1px, transparent 1px);
+background-size:50px 50px;
+background-position:0 0, 25px 25px;
+opacity:0.15;
+z-index:-1;
+animation:moveStars 20s linear infinite;
+}
+
+@keyframes moveStars{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(100px);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div id="loading-screen">
+<h1>Loading Your Heart... ❤️</h1>
+
+<div class="loader-bar">
+<div class="loader-fill"></div>
+</div>
+</div>
+
+<div id="password-screen" class="hidden">
+<div class="card">
+<h2>اكتبي Password قلبي ✨</h2>
+
+<input type="password" id="passwordInput" placeholder="Password">
+
+<button onclick="checkPassword()">
+Open My Heart 💖
+</button>
+</div>
+</div>
+
+<div id="main-content" class="hidden">
+
+<div class="stars"></div>
+
+<section class="hero">
+<h1>Ruba 🌙</h1>
+<p>من أول لحظة… صار في شي مختلف ✨</p>
+</section>
+
+<section class="timeline">
+<div class="timeline-item">💫 أول نظرة</div>
+<div class="timeline-item">❤️ أول تعلق</div>
+<div class="timeline-item">🌌 أول ضحكة</div>
+<div class="timeline-item">💍 وآخر محطة… إنتِ</div>
+</section>
+
+<button class="love-btn" onclick="showLetter()">
+افتحي الرسالة 💌
+</button>
+
+<div id="letter" class="hidden">
+<div class="envelope">
+
+<h2>Ruba ❤️</h2>
+
+<p>
+مهما صار… وجودك لحاله بيفرق 🌙<br><br>
+ويمكن أجمل صدفة صارت بحياتي هي إنتِ.<br><br>
+أنا معك وحدك لآخر الطريق 💖
+</p>
+
+</div>
+</div>
+
+</div>
+
+<script>
+setTimeout(()=>{
+document.getElementById("loading-screen").classList.add("hidden");
+document.getElementById("password-screen").classList.remove("hidden");
+},3000);
+
+function checkPassword(){
+const pass = document.getElementById("passwordInput").value;
+
+if(pass === "1542025"){
+document.getElementById("password-screen").classList.add("hidden");
+document.getElementById("main-content").classList.remove("hidden");
+}else{
+alert("Wrong Password 💔");
+}
+}
+
+function showLetter(){
+document.getElementById("letter").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
